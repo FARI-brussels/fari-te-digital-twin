@@ -17,7 +17,7 @@ import struct
 
 context = zmq.Context()
 publisher = context.socket(zmq.PUB)
-publisher.bind("tcp://127.0.0.1:5555")
+publisher.bind("tcp://0.0.0.0:5555")
 def send_robot_data_fast(publisher, robot_id, joint_positions):
     # Pack: robot_id (4 bytes) + joint_positions (float32 array)
     joint_bytes = joint_positions.astype(np.float32).tobytes()
